@@ -17,14 +17,15 @@ _For more information, Check out the [API docs](../api/components/action-sheet/A
 </a>
 
 ```typescript
-import { ActionSheetController } from 'ionic-angular';
+import { ActionSheet } from 'ionic-angular';
 
 export class MyPage {
-  constructor(public actionSheetCtrl: ActionSheetController) {
+  constructor(nav: NavController) {
+    this.nav = nav;
   }
 
   presentActionSheet() {
-    let actionSheet = this.actionSheetCtrl.create({
+    let actionSheet = ActionSheet.create({
       title: 'Modify your album',
       buttons: [
         {
@@ -47,7 +48,7 @@ export class MyPage {
         }
       ]
     });
-    actionSheet.present();
+    this.nav.present(actionSheet);
   }
 }
 ```
